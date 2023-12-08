@@ -2,6 +2,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+let userLocation;
+let currentTime;
 const Home = () => {
     const containerStyle = {
         display: 'flex',
@@ -37,8 +39,8 @@ const Home = () => {
                     // Get current time
                     const currentTime = new Date();
                     console.log('Current Time:', currentTime);
-
-
+                    
+                    
                 },
                 (error) => {
                     console.error('Error getting location:', error);
@@ -58,5 +60,7 @@ const Home = () => {
         </div>
     );
 };
+
+export { userLocation, currentTime };
 
 export default Home;
