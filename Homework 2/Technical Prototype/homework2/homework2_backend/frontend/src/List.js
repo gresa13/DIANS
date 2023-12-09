@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { userLocation,currentTime } from './Home';
+import { userLocation, currentTime } from './Home';
+
 const List = () => {
     const [wineries, setWineries] = useState([]);
     const [error, setError] = useState(null);
@@ -13,7 +14,7 @@ const List = () => {
                 return response.json();
             })
             .then(data => {
-                console.log("Fetched data: ", data); // Log the data
+                console.log("Fetched data: ", data);
                 setWineries(data);
             })
             .catch(error => {
@@ -22,21 +23,48 @@ const List = () => {
             });
     }, []);
 
+    const containerStyle = {
+        textAlign: 'center',
+    };
+
+    const titleStyle = {
+        color: 'darkred',
+        fontFamily: 'Your Modern Font, sans-serif',
+    };
+
+    const errorMessageStyle = {
+        color: 'red',
+    };
+
+    const listStyle = {
+        listStyle: 'none',
+        padding: 0,
+    };
+
+    const listItemStyle = {
+        fontFamily: 'Your Modern Font, sans-serif',
+        border: '1px solid lightgray',
+        margin: '5px',
+        padding: '10px',
+        backgroundColor: 'darkred',
+        color: 'white',
+    };
+
     return (
-        <div>
-            <h2>List of Wineries</h2>
-            {error && <p>Error fetching data: {error.message}</p>}
-            {Array.isArray(wineries) ? (
-                wineries.map(winery => (
-                    <div key={winery.id}>
-                        {winery.name}
-                    </div>
-                ))
+        <div style={containerStyle}>
+            <h2 style={titleStyle}>List of Wineries</h2>
+
+            {error ? (
+                <p style={errorMessageStyle}>Error fetching wineries: {error.message}</p>
             ) : (
-                <p>No wineries found or data is not in the correct format.</p>
+                <ul style={listStyle}>
+                    {wineries.map(winery => (
+                        <li key={winery.id} style={listItemStyle}>{winery.name}</li>
+                    ))}
+                </ul>
             )}
         </div>
     );
-}
+};
 
 export default List;
