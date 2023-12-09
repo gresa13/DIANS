@@ -1,3 +1,18 @@
 {
-    "java.compile.nullAnalysis.mode": "automatic"
-}
+    "java.compile.nullAnalysis.mode": "automatic",
+
+    
+        "version": "0.2.0",
+        "configurations": [
+          {
+            "type": "java",
+            "name": "Debug (Launch)",
+            "request": "launch",
+            "mainClass": "com.example.homework2.Homework2Application",
+            "modulePaths": ["DIANS/Homework 2/Technical Prototype/homework2/homework2_backend"],
+            "classPaths": ["DIANS/Homework 2/Technical Prototype/homework2/homework2_backend/target/classes"]
+          }
+        ]
+      
+      
+  }
