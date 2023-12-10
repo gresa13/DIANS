@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -23,6 +22,10 @@ const Home = () => {
         fontSize: '16px',
         cursor: 'pointer', // Add a pointer cursor to indicate it's clickable
     };
+    const pstyle={
+        color: "#616161",
+        fontSize:'13px',
+    }
 
     const handleSeeListClick = () => {
         // Get geolocation
@@ -54,6 +57,7 @@ const Home = () => {
     return (
         <div style={containerStyle}>
             <h2>Click to see wineries</h2>
+            <p style={pstyle}>By clicking this button you are allowing app to access your location and current time.</p>
             <Link to="/list" style={buttonStyle} onClick={handleSeeListClick}>
                 See List
             </Link>
