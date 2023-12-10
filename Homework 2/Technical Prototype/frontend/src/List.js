@@ -8,6 +8,7 @@ const List = () => {
     const [selectedWinery, setSelectedWinery] = useState(null);
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [userRating, setUserRating] = useState(0);
+    const [userReview, setUserReview] = useState('');
 
     useEffect(() => {
         fetch('http://localhost:8080/api/wineries')
@@ -32,13 +33,24 @@ const List = () => {
         setModalIsOpen(true);
     };
 
+    const handleReviewClick = winery => {
+        setSelectedWinery(winery);
+        setModalIsOpen(true);
+    };
+
     const handleModalClose = () => {
         setModalIsOpen(false);
         setUserRating(0);
+        setUserReview('');
     };
 
     const handleRatingSubmit = () => {
         console.log(`Rating submitted for ${selectedWinery.name}: ${userRating}`);
+        handleModalClose();
+    };
+
+    const handleReviewSubmit = () => {
+        console.log(`Review submitted for ${selectedWinery.name}: ${userReview}`);
         handleModalClose();
     };
 
@@ -71,7 +83,7 @@ const List = () => {
         justifyContent: 'space-between',
     };
 
-    const ratingButtonStyle = {
+    const buttonStyle = {
         backgroundColor: 'white',
         color: 'darkred',
         border: 'none',
@@ -90,10 +102,16 @@ const List = () => {
                         <li key={winery.id} style={listItemStyle}>
                             {winery.name}
                             <button
-                                style={ratingButtonStyle}
+                                style={buttonStyle}
                                 onClick={() => handleRatingClick(winery)}
                             >
                                 Rate
+                            </button>
+                            <button
+                                style={buttonStyle}
+                                onClick={() => handleReviewClick(winery)}
+                            >
+                                Review
                             </button>
                         </li>
                     ))}
@@ -101,16 +119,31 @@ const List = () => {
             )}
 
             <Modal isOpen={modalIsOpen} onRequestClose={handleModalClose}>
-                <h2>Rate {selectedWinery && selectedWinery.name}</h2>
-                <select value={userRating} onChange={e => setUserRating(Number(e.target.value))}>
-                    <option value={0}>Select Rating</option>
-                    <option value={1}>1</option>
-                    <option value={2}>2</option>
-                    <option value={3}>3</option>
-                    <option value={4}>4</option>
-                    <option value={5}>5</option>
-                </select>
-                <button onClick={handleRatingSubmit}>Submit Rating</button>
+                {userRating > 0 && (
+                    <div>
+                        <h2>Rate {selectedWinery && selectedWinery.name}</h2>
+                        <select value={userRating} onChange={e => setUserRating(Number(e.target.value))}>
+                            <option value={0}>Select Rating</option>
+                            <option value={1}>1</option>
+                            <option value={2}>2</option>
+                            <option value={3}>3</option>
+                            <option value={4}>4</option>
+                            <option value={5}>5</option>
+                        </select>
+                        <button onClick={handleRatingSubmit}>Submit Rating</button>
+                    </div>
+                )}
+
+                <div>
+                    <h2>Review {selectedWinery && selectedWinery.name}</h2>
+                    <textarea
+                        value={userReview}
+                        onChange={e => setUserReview(e.target.value)}
+                        placeholder="Write your review here"
+                    />
+                    <button onClick={handleReviewSubmit}>Submit Review</button>
+                </div>
+
                 <button onClick={handleModalClose}>Cancel</button>
             </Modal>
         </div>
