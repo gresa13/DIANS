@@ -75,7 +75,7 @@ const List = () => {
 
   const titleStyle = {
     color: 'darkred',
-    fontFamily: 'Your Modern Font, sans-serif',
+    fontFamily:"Noto Sans, sans-serif",
     fontSize: '24px',
     marginBottom: '20px',
   };
