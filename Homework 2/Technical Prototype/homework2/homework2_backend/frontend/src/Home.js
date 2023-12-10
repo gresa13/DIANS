@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 let userLocation;
 let currentTime;
 const Home = () => {
+    
     const containerStyle = {
         display: 'flex',
         flexDirection: 'column',
@@ -15,12 +16,12 @@ const Home = () => {
     };
 
     const buttonStyle = {
-        backgroundColor: '#8b0000',
-        color: '#ffffff',
-        padding: '10px 20px',
+        backgroundColor: '#e5d9dd',
+        color: '#5e1228',
+        padding: '10px 30px',
         borderRadius: '5px',
         textDecoration: 'none',
-        fontSize: '16px',
+        fontSize: '18px',
         cursor: 'pointer', // Add a pointer cursor to indicate it's clickable
     };
     const pstyle={
@@ -29,7 +30,8 @@ const Home = () => {
     }
     const clickstyle={
         color:"white",
-        
+        fontFamily:"Noto Sans, sans-serif",
+        fontWeight:"100",
         fontSize:"20px",
     }
 
