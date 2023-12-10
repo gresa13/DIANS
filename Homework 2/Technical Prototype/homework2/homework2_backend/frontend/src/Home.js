@@ -19,13 +19,14 @@ const Home = () => {
         backgroundColor: '#e5d9dd',
         color: '#5e1228',
         padding: '10px 30px',
+        marginTop:'-30px',
         borderRadius: '5px',
         textDecoration: 'none',
         fontSize: '18px',
         cursor: 'pointer', // Add a pointer cursor to indicate it's clickable
     };
     const pstyle={
-        color: "white",
+        color: "#cccccc",
         fontSize:'13px',
     }
     const clickstyle={
@@ -65,12 +66,12 @@ const Home = () => {
     return (
         <div style={containerStyle}>
            <img src="/WineSpots.png" alt="logo"  width={'450px'}></img>
-            <h2 style={clickstyle}>Click to see wineries</h2>
-            <p style={pstyle}>By clicking this button you are allowing app to access your location and current time.</p>
+            
             <Link to="/list" style={buttonStyle} onClick={handleSeeListClick}>
                 See List
             </Link>
-        
+            <br></br>
+        <p style={pstyle}>By clicking this button you are allowing app to access your location and current time.</p>
             
 
         </div>
