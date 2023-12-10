@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+
 let userLocation;
 let currentTime;
 const Home = () => {
@@ -10,7 +11,7 @@ const Home = () => {
         alignItems: 'center',
         justifyContent: 'center',
         height: '100vh',
-        backgroundColor: '#f0f0f0',
+        backgroundColor: '#5e1228',
     };
 
     const buttonStyle = {
@@ -23,8 +24,13 @@ const Home = () => {
         cursor: 'pointer', // Add a pointer cursor to indicate it's clickable
     };
     const pstyle={
-        color: "#616161",
+        color: "white",
         fontSize:'13px',
+    }
+    const clickstyle={
+        color:"white",
+        
+        fontSize:"20px",
     }
 
     const handleSeeListClick = () => {
@@ -56,11 +62,15 @@ const Home = () => {
 
     return (
         <div style={containerStyle}>
-            <h2>Click to see wineries</h2>
+           <img src="/WineSpots.png" alt="logo"  width={'450px'}></img>
+            <h2 style={clickstyle}>Click to see wineries</h2>
             <p style={pstyle}>By clicking this button you are allowing app to access your location and current time.</p>
             <Link to="/list" style={buttonStyle} onClick={handleSeeListClick}>
                 See List
             </Link>
+        
+            
+
         </div>
     );
 };
