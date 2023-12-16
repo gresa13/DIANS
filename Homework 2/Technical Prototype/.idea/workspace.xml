@@ -5,11 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="86f6ee53-e7a6-4811-a442-6ffc664cfa07" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/homework2/homework2_backend/frontend/src/Home.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/homework2/homework2_backend/frontend/src/List.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework2/homework2_backend/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/homework2/homework2_backend/frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework2/homework2_backend/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/homework2/homework2_backend/frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework2/homework2_backend/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/homework2/homework2_backend/frontend/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework2/homework2_backend/src/main/java/com/example/homework2/web/controller/WineryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/homework2/homework2_backend/src/main/java/com/example/homework2/web/controller/WineryController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,7 +13,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/homework2/homework2_backend/frontend" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -30,28 +26,19 @@
     </option>
   </component>
   <component name="ProjectId" id="2ZJBZPZA5jEKjFvhD2qktLm6VZK" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Gresa/Desktop/hw2dnas&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
-  }
-}</component>
-  <component name="RunManager" selected="Spring Boot.Homework2Application">
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RunManager">
     <configuration name="Homework2ApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="homework2" />
       <extension name="coverage">
@@ -74,11 +61,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="JUnit.Homework2ApplicationTests" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -90,6 +72,7 @@
       <updated>1702130356473</updated>
       <workItem from="1702130357463" duration="2620000" />
       <workItem from="1702139248792" duration="4000" />
+      <workItem from="1702726309887" duration="17000" />
     </task>
     <servers />
   </component>

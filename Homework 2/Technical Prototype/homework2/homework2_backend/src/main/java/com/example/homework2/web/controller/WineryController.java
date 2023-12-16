@@ -30,8 +30,8 @@ public class WineryController {
         return new ResponseEntity <> ( wineries, HttpStatus.OK);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Winery> getWineryById(@PathVariable Long id) throws WineryNotFoundException {
+    @GetMapping("/{id}/details")
+    public ResponseEntity<Winery> getWineryDetails(@PathVariable Long id) throws WineryNotFoundException {
         Winery winery=wineryService.findById ( id );
         return new ResponseEntity<>(winery,HttpStatus.OK);
     }
@@ -41,6 +41,42 @@ public class WineryController {
         Winery winery1=wineryService.findWineryByName ( name );
         return new ResponseEntity<>(winery1,HttpStatus.OK);
     }
+
+    @GetMapping("/{id}/distance")
+    public ResponseEntity<Double> calculateDistance(
+            @PathVariable Long id,
+            @RequestParam double userLat,
+            @RequestParam double userLng) {
+        Winery winery=wineryService.findById ( id );
+        double distance=calculateDistance(userLat, userLng, winery.getLat (), winery.getLon ());
+        return ResponseEntity.ok(distance);
+//        return wineryService.findById(id)
+//                .map(winery -> {
+//                    double distance = Haversine.distance(userLat, userLng, winery.getLatitude(), winery.getLongitude());
+//                    return ResponseEntity.ok(distance);
+//                })
+//                .orElse(ResponseEntity.notFound().build());
+    }
+
+    private double calculateDistance(double startLat, double startLong, double endLat, double endLong) {
+        final int EARTH_RADIUS = 6371; // Radius of the earth in kilometers
+
+        double dLat = Math.toRadians(endLat - startLat);
+        double dLong = Math.toRadians(endLong - startLong);
+
+        startLat = Math.toRadians(startLat);
+        endLat = Math.toRadians(endLat);
+
+        double a = haversin(dLat) + Math.cos(startLat) * Math.cos(endLat) * haversin(dLong);
+        double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+
+        return EARTH_RADIUS * c; // Distance in kilometers
+    }
+
+    private double haversin(double value) {
+        return Math.pow(Math.sin(value / 2), 2);
+    }
+
     @PostMapping
     public ResponseEntity<Winery> createWinery(@RequestBody Winery winery) throws WineryAlreadyExistsException {
         Winery winery1=wineryService.saveWinery ( winery );
