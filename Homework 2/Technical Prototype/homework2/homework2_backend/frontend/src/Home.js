@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import { useTranslation } from 'react-i18next';
 
 let userLocation;
 let currentTime;
 const Home = () => {
-    
+    const { t } = useTranslation();
     const containerStyle = {
         display: 'flex',
         flexDirection: 'column',
@@ -68,10 +68,10 @@ const Home = () => {
            <img src="/WineSpots.png" alt="logo"  width={'450px'}></img>
             
             <Link to="/list" style={buttonStyle} onClick={handleSeeListClick}>
-                See List
+                {t('home.seeList')}
             </Link>
             <br></br>
-        <p style={pstyle}>By clicking this button you are allowing app to access your location and current time.</p>
+        <p style={pstyle}>{t('home.clickButton')}</p>
             
 
         </div>
