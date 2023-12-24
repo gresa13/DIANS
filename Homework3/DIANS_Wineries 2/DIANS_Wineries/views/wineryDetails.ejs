@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= winery.name %></title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #5e1228;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .detail {
+            margin-bottom: 10px;
+        }
+        a.back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: #5e1228;
+            text-decoration: none;
+            border: 1px solid #5e1228;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        a.back-link:hover {
+            background-color: #5e1228;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <h1>Winery Details</h1>
+</div>
+<div class="container">
+    <h2><%= winery.name %></h2>
+    <% if (winery['addr:city']) { %>
+        <p class="detail">City: <%= winery['addr:city'] %></p>
+    <% } %>
+    <% if (winery.phone) { %>
+        <p class="detail">Phone: <%= winery.phone %></p>
+    <% } %>
+    <% if (winery.opening_hours) { %>
+        <p class="detail">Opening Hours: <%= winery.opening_hours %></p>
+    <% } %>
+    <!-- Add more fields as necessary -->
+
+    <a href="/main" class="back-link">Back to list</a>
+</div>
+</body>
+</html>
