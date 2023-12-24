@@ -1,0 +1,66 @@
+<!-- main.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+    <style>
+        body{
+            background-color:#ffffff;
+        }
+ li {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 22px;
+    border: 1px solid lightgray;
+    margin: 10px 0;
+    padding: 20px;
+    background-color: #e5d9dd;
+    color: #5e1228;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+h1{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    color: #5e1228;
+
+}
+iframe{
+    margin-left: 30%;
+}
+header {
+    background-color: #5e1228;
+            padding: 2px;
+            color: #ffffff; 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+           
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 10; 
+            text-align: left;
+        }
+    
+        
+
+    </style>
+</head>
+<body>
+    <header>
+        <img src="/images/logo.png" alt="Logo" id="logo" style="width:110px;height: 130px ;margin-left: 30px;"> 
+        <h2 style="margin-right: 30px;font-family: 'Trebuchet MS';">Wine Spots</h2>
+        
+    </header>
+    <h1>Wineries near you</h1>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d47446.03701775628!2d21.443379156588772!3d41.992177268938455!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1swineries%20near%20Skopje!5e0!3m2!1sen!2smk!4v1703288469329!5m2!1sen!2smk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <ul>
+       <% for (const name of names) { %>
+            <li><%= name %></li>
+        <% } %>
+    </ul>
+</body>
+</html>
