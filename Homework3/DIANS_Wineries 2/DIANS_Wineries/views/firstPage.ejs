@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <style>
+    body{
+        background-color: #5e1228;
+    }
+   .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #5e1228;
+}
+
+button {
+    background-color: #e5d9dd;
+    color: #5e1228;
+    padding: 10px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+  border: black;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px #333333;
+    transition: background-color 0.3s, color 0.3s;
+   
+   
+}
+button:hover{
+opacity: 0.7;
+
+
+}
+p{
+    color: #696969;
+    width: 50%;
+    margin-top: 30px;
+    font-size: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+   </style>
+    <title>WineSpots</title>
+</head>
+<body>
+    <div class="container">
+        <img src="/images/WineSpots.png" alt="Logo">
+
+        <button id="ContinueButtn">See Wineries</button>
+        <p>When you press the 'See Wineries' button, the application will access your current location and time. This information allows us to enhance your experience by providing location-specific content and services. Rest assured that we prioritize user privacy and only collect the necessary data for a more personalized and seamless interaction with the application. Your location and time data will be used responsibly and in compliance with our privacy policy.</p>
+    </div>
+    <script>
+     
+      
+     document.getElementById('ContinueButtn').addEventListener('click', function() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        const userLocation = {
+                            latitude: position.coords.latitude,
+                            longitude: position.coords.longitude,
+                        };
+
+                        console.log('User Location:', userLocation);
+
+                        
+                        const currentTime = new Date();
+                        console.log('Current Time:', currentTime);
+
+                        
+                        fetch('/main', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify({ userLocation, currentTime }),
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                           
+                            window.location.href = '/main';
+                        })
+                        .catch(error => {
+                            console.error('Error sending data to server:', error);
+                        });
+                    },
+                    (error) => {
+                        console.error('Error getting location:', error);
+                    }
+                );
+            } else {
+                console.error('Geolocation is not supported by this browser.');
+            }
+        });
+    </script>
+</body>
+</html>
