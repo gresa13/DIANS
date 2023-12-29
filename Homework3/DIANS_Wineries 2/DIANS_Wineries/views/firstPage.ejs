@@ -56,9 +56,7 @@ p{
         <p>When you press the 'See Wineries' button, the application will access your current location and time. This information allows us to enhance your experience by providing location-specific content and services. Rest assured that we prioritize user privacy and only collect the necessary data for a more personalized and seamless interaction with the application. Your location and time data will be used responsibly and in compliance with our privacy policy.</p>
     </div>
     <script>
-     
-      
-     document.getElementById('ContinueButtn').addEventListener('click', function() {
+                document.getElementById('ContinueButtn').addEventListener('click', function() {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(
                     (position) => {
@@ -70,25 +68,7 @@ p{
                         console.log('User Location:', userLocation);
 
                         
-                        const currentTime = new Date();
-                        console.log('Current Time:', currentTime);
-
-                        
-                        fetch('/main', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json',
-                            },
-                            body: JSON.stringify({ userLocation, currentTime }),
-                        })
-                        .then(response => response.json())
-                        .then(data => {
-                           
-                            window.location.href = '/main';
-                        })
-                        .catch(error => {
-                            console.error('Error sending data to server:', error);
-                        });
+                        window.location.href = `/main?latitude=${userLocation.latitude}&longitude=${userLocation.longitude}`;
                     },
                     (error) => {
                         console.error('Error getting location:', error);
