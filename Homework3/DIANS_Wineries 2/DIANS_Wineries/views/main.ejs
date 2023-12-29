@@ -1,66 +1,291 @@
-<!-- main.ejs -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main Page</title>
-    <style>
-        body{
-            background-color:#ffffff;
-        }
- li {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 22px;
-    border: 1px solid lightgray;
-    margin: 10px 0;
-    padding: 20px;
-    background-color: #e5d9dd;
-    color: #5e1228;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-h1{
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    text-align: center;
-    color: #5e1228;
+    <script src="https://kit.fontawesome.com/23229f2ca3.js" crossorigin="anonymous"></script>
+    
 
-}
-iframe{
-    margin-left: 30%;
-}
-header {
-    background-color: #5e1228;
+
+    
+</head>
+
+<style>
+    
+    body {
+            background-color: #f2f2f2; 
+            margin: 0; 
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+    
+        li {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 22px;
+            border: 1px solid lightgray;
+            margin: 10px 0;
+            padding: 20px;
+            background-color: #e5d9dd;
+            color: #5e1228;
+            display: flex;
+            justify-content: space-between; 
+            align-items: center;
+        }
+    
+        h1 {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            text-align: center;
+            color: #5e1228;
+            margin-top: 20px; 
+        }
+    
+        iframe {
+            margin-left: 30%;
+        }
+    
+        header {
+            background-color: #5e1228;
             padding: 2px;
-            color: #ffffff; 
+            color: #ffffff;
             display: flex;
             justify-content: space-between;
             align-items: center;
-           
             width: 100%;
             top: 0;
             left: 0;
-            z-index: 10; 
+            z-index: 10;
             text-align: left;
+            justify-content: center;
+           
+        }
+        a{
+            text-decoration: none;
+            color: #5e1228;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+         font-weight: bold;
         }
     
-        
+        .modal {
+            display: none;
+            position: fixed;
+            border-radius: 2px;
+            top: 50%;
+            left: 50%;
+            font-family: Arial, Helvetica, sans-serif;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: #ffffff;
+            border: 1px solid #ccc;
+            z-index: 1000;
+        }
+        .modal button {
+        background-color: #800020;
+        color: #ffffff;
+        border: none;
+        border-radius: 4px;
+        padding: 10px 15px;
+        font-size: 15px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
 
+    .modal button:hover {
+        background-color: #5e1228;
+    }
+    
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+    
+        .rating-button,
+        .review-button,
+        .notification-button {
+            background-color: #800020; 
+            border-radius: 4px;
+            color: #ffffff;
+            border: none;
+            font-weight: 200;
+            padding: 15px 20px;
+            font-size: 15px;
+            cursor: pointer;
+            margin-left: 5px; 
+        }
+    
+        .notification-modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: #ffffff;
+            border: 1px solid #ccc;
+            z-index: 1000;
+        }
+    
+        .notification-modal textarea {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .rating{
+            display: flex; 
+            align-items: center; 
+            color: #FFD700; 
+        font-size: 30px;
+        }
+        .rating p{
+            margin-left: 5px;
+            font-size: 20px;
+            color: #5e1228;
+        }
+        .status{
+            display: flex; 
+            align-items: center; 
+        }
+        .status p{
+            font-size: medium;
+        }
+        .status h4{
+            margin-left: 5px;
+
+        }
+        .name a{
+            margin-left: 5px;
+        }
     </style>
-</head>
+
+</style>
 <body>
     <header>
-        <img src="/images/logo.png" alt="Logo" id="logo" style="width:110px;height: 130px ;margin-left: 30px;"> 
+        <img src="/images/logo.png" alt="Logo" id="logo" style="width:110px;height: 130px ;margin-left: 30px;">
         <h2 style="margin-right: 30px;font-family: 'Trebuchet MS';">Wine Spots</h2>
-        
     </header>
     <h1>Wineries near you</h1>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d47446.03701775628!2d21.443379156588772!3d41.992177268938455!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1swineries%20near%20Skopje!5e0!3m2!1sen!2smk!4v1703288469329!5m2!1sen!2smk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    <ul>
-       <% for (const name of names) { %>
-            <li><%= name %></li>
-        <% } %>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d47446.03701775628!2d21.443379156588772!3d41.992177268938455!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1swineries%20near%20Skopje!5e0!3m2!1sen!2smk!4v1703288469329!5m2!1sen!2smk"
+        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <p style="margin-left: 10%; font-size: larger;">Here is a list of wineries listed from closest to your current location:</p>
+        <ul>
+        <% wineries.forEach(winery => {
+        if(winery.name && winery.name.trim() !== '') { %>
+            <li>
+                <div class="name"> 
+                    <i class='fas fa-wine-glass-alt' style='font-size:30px'></i>
+                <a href="/winery/<%= winery._id %>"><%= winery.name %></a>
+                    </div>
+               
+                <div class="status">
+                    <p >Currently</p><h4><%= winery.status %></h4>
+                    </div>
+                
+                
+               
+                    <div class="rating">
+  <% if (winery.rating === 5) { %>
+    <% for (let i = 0; i < winery.rating; i++) { %>
+      &#9733; 
+    <% } %>
+  <% } else { %>
+    <% for (let i = 0; i < winery.rating-1; i++) { %>
+      &#9733; 
+    <% } %>
+    <% for (let i = winery.rating; i < 5; i++) { %>
+      &#9734; 
+    <% } %>
+  <% } %>
+  <p><%= winery.rating %></p>  
+</div>
+
+                
+                <div>
+                    <button class="rating-button" onclick="openRatingModal('<%= winery.name %>')">Rate</button>
+                    <button class="review-button" onclick="openReviewModal('<%= winery.name %>')">Review</button>
+                    <button class="notification-button" onclick="openNotificationModal()">Notification</button>
+                </div>
+            </li>
+        <% }
+        }) %>
     </ul>
+
+    <div class="modal notification-modal" id="notificationModal">
+        <p>If you wish to receive notifications about any special events, promotions, or changes in the winery, add your email address below:</p>
+        <textarea id="notificationEmail" rows="4" placeholder="Enter your email address..."></textarea>
+        <button onclick="submitNotification()">Submit</button>
+        <button onclick="closeNotificationModal()">Cancel</button>
+    </div>
+    <div class="overlay" id="overlay"></div>
+    <div class="modal" id="ratingModal">
+        <h2>Give a Rating</h2>
+        <p>Select a rating from 1 to 5:</p>
+        <select id="ratingSelect">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+        <button onclick="submitRating()">Submit</button>
+        <button onclick="closeRatingModal()">Cancel</button>
+    </div>
+    <div class="modal" id="reviewModal">
+        <h2>Write a Review</h2>
+        <textarea id="reviewText" rows="4" cols="50" placeholder="Enter your review..."></textarea>
+        <button onclick="submitReview()">Submit</button>
+        <button onclick="closeReviewModal()">Cancel</button>
+    </div>
+
+    <script>
+        function openRatingModal(wineryName) {
+            document.getElementById('overlay').style.display = 'block';
+            document.getElementById('ratingModal').style.display = 'block';
+            // You can use the wineryName variable to identify the specific winery for the rating.
+        }
+
+        function closeRatingModal() {
+            document.getElementById('overlay').style.display = 'none';
+            document.getElementById('ratingModal').style.display = 'none';
+        }
+
+        function submitRating() {
+            const selectedRating = document.getElementById('ratingSelect').value;
+            closeRatingModal();
+        }
+        function openReviewModal(wineryName) {
+        document.getElementById('overlay').style.display = 'block';
+        document.getElementById('reviewModal').style.display = 'block';
+       
+    }
+
+    function closeReviewModal() {
+        document.getElementById('overlay').style.display = 'none';
+        document.getElementById('reviewModal').style.display = 'none';
+    }
+
+    function submitReview() {
+     
+        const reviewText = document.getElementById('reviewText').value;
+        closeReviewModal();
+    }
+    function openNotificationModal() {
+        document.getElementById('overlay').style.display = 'block';
+        document.getElementById('notificationModal').style.display = 'block';
+    }
+
+    function closeNotificationModal() {
+        document.getElementById('overlay').style.display = 'none';
+        document.getElementById('notificationModal').style.display = 'none';
+    }
+
+    function submitNotification() {
+        const notificationEmail = document.getElementById('notificationEmail').value;
+        closeNotificationModal();
+    }
+    </script>
 </body>
 </html>
